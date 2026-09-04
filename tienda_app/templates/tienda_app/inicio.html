@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tienda Online</title>
+</head>
+<body>
+    <h1>Bienvenido a la Tienda Online</h1>
+    <p>Busca un producto por su nombre:</p>
+
+    <form action="{% url 'buscar' %}" method="get">
+        <input type="text" name="nombre" placeholder="Ingresa el nombre del producto">
+        <button type="submit">Buscar</button>
+    </form>
+</body>
+</html>
