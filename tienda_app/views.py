@@ -7,8 +7,10 @@ PRODUCTOS = {
     "teclado": "Teclado",
 }
 
+
 def inicio(request):
     return render(request, 'tienda_app/inicio.html')
+
 
 def buscar(request):
     nombre = request.GET.get('nombre', '').lower().strip()
@@ -16,8 +18,9 @@ def buscar(request):
 
     if producto:
         return render(request, 'tienda_app/resultado.html', {'nombre': nombre, 'producto': producto})
-    else:
-        return render(request, 'tienda_app/no_encontrado.html', {'nombre': nombre})
+
+    return render(request, 'tienda_app/no_encontrado.html', {'nombre': nombre}, status=404)
+
+
 def pagina_no_encontrada(request, exception):
     return render(request, 'tienda_app/no_encontrado.html', {'nombre': request.path}, status=404)
-    
